@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="model"
+            type="com.tugrul.weatherforecastapplication.model.DailyModel" />
+    </data>
+
+
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="120dp"
+    android:gravity="center"
+    android:padding="4dp"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textColor="@color/text_color"
+            tools:text="Wednesday"
+            android:layout_margin="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:itemDay="@{model.dt}"
+          >
+        </TextView>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            tools:src="@drawable/sunny"
+            android:weatherImage="@{model.weather}"
+            >
+        </ImageView>
+
+        <RelativeLayout
+            android:layout_margin="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <View
+                android:layout_toRightOf="@+id/feelsLikeTv"
+                android:layout_marginTop="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_width="5dp"
+                android:layout_height="5dp"
+                android:background="@drawable/degree_circle">
+            </View>
+            <TextView
+                android:textColor="@color/text_color"
+                android:layout_centerInParent="true"
+                android:id="@+id/feelsLikeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:tempString="@{model.temp.day}"
+
+                ></TextView>
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+
+</layout>

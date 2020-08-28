@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="model"
+            type="com.tugrul.weatherforecastapplication.viewmodel.WeatherViewModel" />
+    </data>
+
+
+
+        <LinearLayout
+            android:id="@+id/bottomLay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:backgroundImage="@{model.weatherData.current.weather}"
+            tools:context=".view.WeatherBottomSheetFragment">
+            <LinearLayout
+              android:visibility="gone"
+                android:id="@+id/errorLay"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/errorTv"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_color"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="An error occured.Please try again"
+                    >
+
+                </TextView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/loadingLay"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:gravity="center">
+
+           <ProgressBar
+               android:id="@+id/progressBar"
+               android:indeterminateTint="@color/login_background"
+               android:layout_width="50dp"
+               android:layout_height="50dp">
+
+           </ProgressBar>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+
+               android:visibility="gone"
+                android:id="@+id/childLay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/currentTempIv"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:weatherImage="@{model.weatherData.current.weather}"
+                        android:src="@mipmap/ic_launcher_round"
+                        android:layout_gravity="center">
+                    </ImageView>
+                    <LinearLayout
+                        android:layout_gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <View
+                                android:id="@+id/degreeIcon"
+                                android:layout_toRightOf="@+id/currentTempTv"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginLeft="4dp"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/degree_circle">
+
+                            </View>
+
+                            <TextView
+                                android:textColor="@color/text_color"
+                                android:layout_centerInParent="true"
+                                android:id="@+id/currentTempTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="30sp"
+                                android:gravity="center"
+                                android:tempString="@{model.weatherData.current.temp}"
+                                ></TextView>
+
+                        </RelativeLayout>
+                        <TextView
+                            android:textColor="@color/text_color"
+                            android:id="@+id/currentLocationTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center">
+                        </TextView>
+                        <TextView
+                            android:textColor="@color/text_color"
+                            android:id="@+id/currentDateTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:currentDay="@{model.weatherData.current.dt}">
+                        </TextView>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray">
+                </View>
+                <LinearLayout
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/futureWeatherRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </androidx.recyclerview.widget.RecyclerView>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray">
+                </View>
+                <LinearLayout
+                    android:padding="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:textSize="13sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/text_color"
+                                android:text="Feels Like">
+                            </TextView>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <View
+
+                                    android:layout_toRightOf="@+id/feelsLikeTv"
+                                    android:layout_marginTop="4dp"
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_width="6dp"
+                                    android:layout_height="6dp"
+                                    android:background="@drawable/degree_circle">
+
+                                </View>
+
+                                <TextView
+                                    android:id="@+id/feelsLikeTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true"
+                                    android:gravity="center"
+                                    android:tempString="@{model.weatherData.current.feels_like}"
+                                    android:textColor="@color/text_color"
+                                    android:textSize="16sp"></TextView>
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:textColor="@color/text_color"
+                                android:textSize="13sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Humidity">
+                            </TextView>
+
+                            <TextView
+                                android:textColor="@color/text_color"
+                                android:id="@+id/humidityTv"
+                                android:textSize="16sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:humString="@{model.weatherData.current.humidity}">
+                            </TextView>
+
+
+
+
+
+
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@android:color/darker_gray">
+                    </View>
+
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:weightSum="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:textColor="@color/text_color"
+
+                                android:textSize="13sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Sunrise">
+                            </TextView>
+
+                            <TextView
+                                android:textColor="@color/text_color"
+                                android:id="@+id/sunRiseTv"
+                                android:textSize="16sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:time="@{model.weatherData.current.sunrise}">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:textColor="@color/text_color"
+                                android:textSize="13sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Sunset">
+                            </TextView>
+
+                            <TextView
+
+                                android:textColor="@color/text_color"
+                                android:id="@+id/sunSetTv"
+                                android:textSize="16sp"
+                                android:gravity="center"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:time="@{model.weatherData.current.sunset}">
+                            </TextView>
+
+
+
+
+
+
+
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+                
+            </LinearLayout>
+                
+          
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+</layout>

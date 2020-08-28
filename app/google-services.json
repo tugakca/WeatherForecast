@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1029419004761",
+    "firebase_url": "https://huaweiweatherapp.firebaseio.com",
+    "project_id": "huaweiweatherapp",
+    "storage_bucket": "huaweiweatherapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029419004761:android:ec6121612f130573079248",
+        "android_client_info": {
+          "package_name": "com.tugrul.weatherforecastapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1029419004761-n0ctlbvu6t4o7oc3scuot0rh0t1km6k9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tugrul.weatherforecastapplication",
+            "certificate_hash": "f11ac3f09a2f21334e314cda369cdbb402a75647"
+          }
+        },
+        {
+          "client_id": "1029419004761-1ki9h5dgfonon2foeckqidai2g8bjbs9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnKJ6qNvgQS9JF-LzjVlqyOd2C91UA6Ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1029419004761-1ki9h5dgfonon2foeckqidai2g8bjbs9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
