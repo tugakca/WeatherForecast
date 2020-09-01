@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "1029419004761-n0ctlbvu6t4o7oc3scuot0rh0t1km6k9.apps.googleusercontent.com",
+          "client_id": "1029419004761-o5b9fv5ao11fscpmpoaeoe9puimtqcic.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.tugrul.weatherforecastapplication",
-            "certificate_hash": "f11ac3f09a2f21334e314cda369cdbb402a75647"
+            "certificate_hash": "d98d716225604715bc085a696f613d80b9a378cc"
           }
         },
         {
@@ -29,7 +29,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAnKJ6qNvgQS9JF-LzjVlqyOd2C91UA6Ng"
+          "current_key": "AIzaSyA2Pip4lBUuJe7oln64GLyJUOmxe53cIYM"
         }
       ],
       "services": {
